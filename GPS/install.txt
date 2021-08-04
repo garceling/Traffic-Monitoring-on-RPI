@@ -34,6 +34,8 @@
 13. cgps
 -the gps data should show now
 14. CTRL+C to exit
-
+15.pip3 install gps
+16.pip3 install pytz
+17. run gps_info.py
 
   
