@@ -15,3 +15,5 @@ python3 -m venv name-env
 
 source name-env/bin/activate
 
+deactivate ( to leave virtual env)
+
