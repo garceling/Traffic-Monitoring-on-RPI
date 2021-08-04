@@ -39,3 +39,4 @@
 17. run gps_info.py
 
   
+list of what data can be extracted from the gps: https://gpsd.gitlab.io/gpsd/gpsd_json.html
