@@ -1,1 +1,39 @@
+1. Open CMD terminal, plug in gps
+  
+2. sudo apt install gpsd gpsd-clients gps
 
+  -gpsd is what interfaces with the usb receiver
+  
+3. sudo service gpsd status
+
+  -check to make sure the stauts is active(running)
+  
+4. cd /dev/
+ 
+5. ls
+
+-shows list of devices
+
+6. look for id of gps (should be ttyACM0)
+
+7. cd ~ 
+
+ - to return to home directory
+ 
+8.sudo nano /etc/default/gpsd
+
+9. DEVICES=/dev/ttyACM0 (id of gps)
+
+10. CTRL+O, ENTER , CTRL+Y
+
+-save changes and exit
+
+11. sudo service gpsd restart
+12.sudo service gpsd status
+-make sure active(running)
+13. cgps
+-the gps data should show now
+14. CTRL+C to exit
+
+
+  
