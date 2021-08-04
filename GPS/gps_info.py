@@ -38,7 +38,7 @@ try:
     while running:
         getPositionData(gpsd)
 
-        time.sleep(5)
+        time.sleep(1)
 
 except (KeyboardInterrupt):
     running = False
