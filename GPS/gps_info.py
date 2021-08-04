@@ -17,6 +17,7 @@ def getPositionData(gps):
         utctime = dateutil.parser.parse(str(time))
         #convert utc to local time zone
         localtime = utctime.astimezone(pytz.timezone("Canada/Eastern"))
+        #change directory to wherever you want to txt to be located
         with open(r'/home/pi/Desktop/GPS/newoutput.txt', "a+") as file_object:
             # Move read cursor to the start of file.
             file_object.seek(0)
@@ -24,7 +25,7 @@ def getPositionData(gps):
             data = file_object.read(100)
             if len(data) > 0 :
                 file_object.write("\n")
-            info="Time: " + str(localtime) + " Position: lon = " + str(longitude) + ", lat = " + str(latitude) + "  Speed: " + str(speed)
+            info="Time: " + str(localtime) + " Position: lon = " + str(longitude) + ", lat = " + str(latitude) + "  Speed: " + str(speed) + " m/s"
             print (info)
             #Append Text at the end of file
             file_object.write(info)
