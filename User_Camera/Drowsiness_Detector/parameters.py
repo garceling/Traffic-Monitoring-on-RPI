@@ -1,6 +1,6 @@
 import os
 
-shape_predictor_path    = os.path.join('shape_predictor_68_face_landmarks.dat')
+shape_predictor_path    = os.path.join('/home/pi/tf/Front Camera/yawn/', 'shape_predictor_68_face_landmarks.dat')
 
 
 EYE_DROWSINESS_THRESHOLD    = 0.25
