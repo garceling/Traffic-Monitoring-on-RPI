@@ -1,4 +1,4 @@
-Libraries Needed:scipy,dlib,cv2
+Libraries Needed:scipy,dlib,cv2,imutils
 
 
 
@@ -24,3 +24,5 @@ pip3 install scipy
 pip3 install scikit-image
 
 pip3 install dlib
+
+pip3 install imutils
