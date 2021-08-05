@@ -19,8 +19,6 @@ sudo apt-get install libgtk-3-dev
 
 sudo apt-get install libboost-all-dev
 
-pip3 install numpy
-
 pip3 install scipy
 
 pip3 install scikit-image
