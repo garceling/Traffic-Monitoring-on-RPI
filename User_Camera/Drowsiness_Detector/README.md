@@ -1,9 +1,13 @@
 Libraries Needed:scipy,dlib,cv2
 
 
+
 **How to install cv2**:
 
 pip3 install opencv-python
+
+
+
 
 **How to install dlib/scipy**:
 
