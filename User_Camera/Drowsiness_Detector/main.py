@@ -43,11 +43,6 @@ def facial_processing():
 
 	
     detector    = dlib.get_frontal_face_detector()
-
-    #detector = cv2.CascadeClassifier('OpenCV's Haar cascade')
-    #OpenCV's Haar cascade for face detection is faster than
-    # dlib's built-in HOG detector, but less accurate
-	
     predictor   = dlib.shape_predictor('/home/pi/tf/Front Camera/yawn/shape_predictor_68_face_landmarks.dat')
 
     ls,le = face.FACIAL_LANDMARKS_IDXS["left_eye"]
