@@ -2,14 +2,9 @@ Libraries Needed:scipy,dlib,cv2,imutils
 
 
 
-**How to install cv2**:
+**How to install libraries**:
 
 pip3 install opencv-python
-
-
-
-
-**How to install dlib/scipy**:
 
 sudo apt-get update
 
