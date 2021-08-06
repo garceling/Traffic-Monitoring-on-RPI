@@ -72,7 +72,7 @@ def facial_processing():
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
 	#resize frame
-        frame = imutils.resize(frame, width=900)
+        #frame = imutils.resize(frame, width=900)
 	#convert frame to grayscale 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
