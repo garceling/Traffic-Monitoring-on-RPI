@@ -1,3 +1,6 @@
+Make sure you download the shape_predictor.dat file for this program. You can find the file in the Downloads repository
+
+
 Libraries Needed:scipy,dlib,cv2,imutils
 
 
