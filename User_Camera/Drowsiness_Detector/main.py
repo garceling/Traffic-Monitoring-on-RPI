@@ -149,7 +149,7 @@ def facial_processing():
 	    #checks if the user's eyes are off the road after a sufficient number of frames
             if time.time()- distracton_start_time> DISTRACTION_INTERVAL:
 
-                cv2.putText(frame, "EYES ON ROAD", (10, 30),
+                cv2.putText(frame, "PLEASE KEEP EYES ON ROAD", (10, 30),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
 
 	#show the frame
