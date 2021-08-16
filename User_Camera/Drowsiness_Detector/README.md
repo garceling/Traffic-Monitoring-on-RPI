@@ -1,3 +1,11 @@
+Main: does not append data into a txt file
+
+
+New_Main: appends data into a txt file
+
+
+
+
 Make sure you download the shape_predictor.dat file for this program. You can find the file in the Downloads repository
 
 
