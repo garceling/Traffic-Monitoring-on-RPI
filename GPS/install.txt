@@ -1,6 +1,6 @@
 1. Open CMD terminal, plug in gps
   
-2. sudo apt install gpsd gpsd-clients gps
+2. sudo apt install gpsd gpsd-clients 
 
   -gpsd is what interfaces with the usb receiver
   
