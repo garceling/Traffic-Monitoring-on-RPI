@@ -1,6 +1,6 @@
 # Pi
 
-**Update the RPI**
+**Update the RPI (try to update the RPI once a day)**
 
 sudo apt-get update
 
