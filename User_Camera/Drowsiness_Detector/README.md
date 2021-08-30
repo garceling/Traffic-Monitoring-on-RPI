@@ -6,7 +6,9 @@ New_Main: appends data into a txt file
 
 
 
-Make sure you download the shape_predictor.dat file for this program. You can find the file in the Downloads repository
+**Make sure you download the shape_predictor.dat file for this program**
+
+Downloads:https://github.com/italojs/facial-landmarks-recognition/blob/master/shape_predictor_68_face_landmarks.dat
 
 
 Libraries Needed:scipy,dlib,cv2,imutils
@@ -15,9 +17,15 @@ Libraries Needed:scipy,dlib,cv2,imutils
 
 **How to install libraries**:
 
-pip3 install opencv-python
+sudo apt-get install libhdf5-dev libhdf5-serial-dev libhdf5-103
 
-sudo apt-get update
+sudo apt-get install libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5
+
+sudo apt-get install libatlas-base-dev
+
+sudo apt-get install libjasper-dev
+
+pip3 install opencv-python
 
 sudo apt-get install build-essential cmake
 
@@ -32,6 +40,8 @@ pip3 install scikit-image
 pip3 install dlib
 
 pip3 install imutils
+
+pip3 install datetime
 
 
 
