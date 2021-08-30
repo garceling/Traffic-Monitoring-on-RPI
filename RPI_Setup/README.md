@@ -1,1 +1,1 @@
-Information on how to set up the rapsberry pi and ssh into the RPI can be found on my Youtube: https://www.youtube.com/channel/UCPlqYOvOH9k-q4rNyBo67lQ
+Information on how to set up the rapsberry pi and ssh into the RPI can be found on my Youtube, feel free to leave any comments if you have questions or encounter any errors: https://youtu.be/DxE9TJ_IxpU
