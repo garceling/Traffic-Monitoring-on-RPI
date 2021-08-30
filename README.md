@@ -7,6 +7,12 @@
 
 (updating can take a little as a minute, and sometimes up to one hour)
 
+
+
+
+
+
+
 sudo apt-get update
 
 sudo apt-get upgrade 
@@ -21,6 +27,11 @@ sudo rpi-update
 
 
 (virtual env is recommended as it helps keeps packages organzied. Some programs/code require certain version of libraries that may not be comptaible with other the libraires installed, so to avoid any issues it is best to use a virtual env.)
+
+
+
+
+
 
 sudo pip3 install virtualenv
 
