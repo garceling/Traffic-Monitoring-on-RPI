@@ -1,4 +1,4 @@
-#python3 realsense_yolo_v3_2d.py -classes 0,1,2,3,5,7,9,11
+
 
 
 import pyrealsense2 as rs
