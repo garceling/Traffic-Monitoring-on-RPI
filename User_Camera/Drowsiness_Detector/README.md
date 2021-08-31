@@ -2,10 +2,10 @@ Watch youtube video on how to install the necesaary libraires and run program:
 https://youtu.be/quTUFOviBUU
 
 
-Main: does not append data into a txt file
+**Main**: does not append data into a txt file
 
 
-New_Main: appends data into a txt file
+**New_Main**: appends data into a txt file
 
 
 
@@ -18,11 +18,7 @@ Downloads:https://github.com/italojs/facial-landmarks-recognition/blob/master/sh
 
 
 
-Libraries Needed:scipy,dlib,cv2,imutils
-
-
-
-**How to install libraries**:
+**How to install libraries needed**:
 
 sudo apt-get install libhdf5-dev libhdf5-serial-dev libhdf5-103
 
