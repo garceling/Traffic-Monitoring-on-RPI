@@ -1,3 +1,7 @@
+Watch youtube video on how to install the necesaary libraires and run program:
+https://youtu.be/quTUFOviBUU
+
+
 Main: does not append data into a txt file
 
 
