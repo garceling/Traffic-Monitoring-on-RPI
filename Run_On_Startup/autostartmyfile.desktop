@@ -1,0 +1,3 @@
+[Desktop Entry]
+
+Exec=sudo bash /home/pi/on_reboot.sh
