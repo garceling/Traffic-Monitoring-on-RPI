@@ -1,3 +1,13 @@
+I recommend you watch this video. It really helped me alot when I was trying to configure the monocular camera with the RPI.
+
+Video:https://www.youtube.com/watch?v=8UUkDBBURZo
+
+(start to watch the video at 3:06)
+
+
+
+**Written Instructions**
+
 sudo apt-get update && sudo apt-get dist-upgrade
 sudo apt-get install automake libtool vim cmake libusb-1.0-0-dev libx11-dev xorg-dev libglu1-mesa-dev
 
