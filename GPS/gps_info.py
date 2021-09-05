@@ -1,3 +1,4 @@
+#import the necessary libraries
 from gps import *
 import time
 import datetime
@@ -36,10 +37,12 @@ gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 try:
     print ("Application started!")
     while running:
+        #call function to extract and append GPS data
         getPositionData(gpsd)
-
+        #delay running the program for 1 second
         time.sleep(1)
-
+        
+#if the user presses ctrl+c, the program will stop running
 except (KeyboardInterrupt):
     running = False
     
