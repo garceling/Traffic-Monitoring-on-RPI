@@ -1,4 +1,10 @@
+I recommend you watch this youtube video on how to run tensorflow lite on the RPI and how to set up the coral usb acceraltor. It helped me alot as well.
 
+Video:https://www.youtube.com/watch?v=aimSGOAUI8Y
+
+
+
+**Written Instructions**
 
 git clone https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi.git
 
