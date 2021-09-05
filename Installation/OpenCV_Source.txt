@@ -1,6 +1,9 @@
 I recommend you watch this youtube video: 
 https://www.youtube.com/watch?v=ylnjXbcNLJU&t=12s
 
+
+**written instructions**
+
 sudo nano /etc/dphys-swapfile
 #CONF_SWAPSIZE=100
  CONF_SWAPSIZE=2048
