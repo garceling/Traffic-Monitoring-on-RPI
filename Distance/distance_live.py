@@ -1,6 +1,4 @@
-#python3 distance_live.py -classes 0,1,2,3,5,7,9,11
-
-
+#import the necessary libraries
 import pyrealsense2 as rs
 import numpy as np
 import cv2
