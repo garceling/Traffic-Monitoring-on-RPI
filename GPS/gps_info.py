@@ -1,7 +1,7 @@
 #import the necessary libraries
 from gps import *
 import time
-import datetime
+from datetime import datetime
 import pytz, dateutil.parser
 
 
@@ -9,15 +9,13 @@ running = True
 
 def getPositionData(gps):
     nx = gpsd.next()
+    
     if nx['class'] == 'TPV':
-        time=getattr(nx,'time', "Unknown")
+        #extract gps info
         latitude = getattr(nx,'lat', "Unknown")
         longitude = getattr(nx,'lon', "Unknown")
         speed=getattr(nx,'speed', "Unknown")
 
-        utctime = dateutil.parser.parse(str(time))
-        #convert utc to local time zone
-        localtime = utctime.astimezone(pytz.timezone("Canada/Eastern"))
         #change directory to wherever you want to txt file to be located
         with open(r'/home/pi/Desktop/GPS/newoutput.txt', "a+") as file_object:
             # Move read cursor to the start of file.
@@ -26,11 +24,14 @@ def getPositionData(gps):
             data = file_object.read(100)
             if len(data) > 0 :
                 file_object.write("\n")
-            info="Time: " + str(localtime) + " Position: lon = " + str(longitude) + ", lat = " + str(latitude) + "  Speed: " + str(speed) + " m/s"
+            #stores the current date/time
+            dateTimeObj=datetime.now()
+            info="Time: " + str(dateTimeObj) + " Position: lon = " + str(longitude) + ", lat = " + str(latitude) + "  Speed: " + str(speed*3.6) + " km/h"
             print (info)
-            #Append Text at the end of file
+            #Append gps info at the end of the file
             file_object.write(info)
-
+            
+# Tell gpsd we are ready to receive messages
 gpsd = gps(mode=WATCH_ENABLE|WATCH_NEWSTYLE)
 
 
