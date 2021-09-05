@@ -1,3 +1,4 @@
+#import the necessary libaries
 from parameters import *
 from scipy.spatial import distance
 from imutils import face_utils as face
@@ -37,11 +38,12 @@ def get_mouth_aspect_ratio(mouth):
 
 # Facial processing
 def facial_processing():
-    distracton_initlized = False
+    distracton_initialized = False
     eye_initialized      = False
     mouth_initialized    = False
     normal_initialized   = False
 	
+    #get face detector and facial landmark predector
     detector    = dlib.get_frontal_face_detector()
     predictor   = dlib.shape_predictor('/home/pi/tflite1/Drowsiness_Detector/shape_predictor_68_face_landmarks.dat')
 
@@ -77,11 +79,11 @@ def facial_processing():
 
         if rect!=None:
             #measures the duration the users eyes were off the road
-            if distracton_initlized==True:
+            if distracton_initialized==True:
                 interval=time.time()-distracton_start_time
                 interval=str(round(interval,3))
                 dateTime= datetime.now()
-                distracton_initlized=False
+                distracton_initialized=False
                 info="Date: " + str(dateTime) + ", Interval: " + interval + ", Type: Eyes not on road"
                 info=info+ "\n"
                 if time.time()- distracton_start_time> DISTRACTION_INTERVAL:
@@ -177,7 +179,7 @@ def facial_processing():
 
 
             #checks if the user is focused
-            if (eye_initialized==False) & (mouth_initialized==False) & (distracton_initlized==False):
+            if (eye_initialized==False) & (mouth_initialized==False) & (distracton_initialized==False):
 
                 if not normal_initialized:
                     normal_start_time= time.time()
@@ -216,9 +218,9 @@ def facial_processing():
                         with open(r'/home/pi/Desktop/output.txt', "a+") as file_object:
                             file_object.write(info_eye)
 
-            if not distracton_initlized:
+            if not distracton_initialized:
                 distracton_start_time=time.time()
-                distracton_initlized=True
+                distracton_initialized=True
                 #eye_initialized=False
 	    #checks if the user's eyes are off the road after a sufficient number of frames
             if time.time()- distracton_start_time> DISTRACTION_INTERVAL:
