@@ -3,4 +3,4 @@ https://www.youtube.com/watch?v=DTFfKc4eids
 
 
 
-Download the necessary models for vehicle detection. Try to download a model (cfg/weights) with high fps: https://pjreddie.com/darknet/yolo/
+Download the necessary models for vehicle detection. Try to download a pre-trained model (cfg/weights) with high fps: https://pjreddie.com/darknet/yolo/
