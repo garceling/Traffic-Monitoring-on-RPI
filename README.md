@@ -1,3 +1,9 @@
+** I recommend that you start with the gps, than the User_Camera (drowsiness decector), and than the distance measurements. This is to ensure that you will have the neceassry libaries needed for the virtual environment**
+
+
+
+
+
 # Pi
 
 **Update the RPI (try to update the RPI once a day)**
