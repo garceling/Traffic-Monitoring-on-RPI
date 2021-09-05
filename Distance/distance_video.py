@@ -6,15 +6,18 @@ import cv2
 import sys
 
 # Initialize the parameters
-confThreshold = 0.5
-nmsThreshold = 0.4
-inpWidth = 416
-inpHeight = 416
+confThreshold = 0.5             #Confidence threshold
+nmsThreshold = 0.4              #Non-maximum suppression threshold
+inpWidth = 416                  #Non-maximum suppression threshold
+inpHeight = 416                 #Height of network's input image
+
+
 classesFile = "coco.names"
 
 # Configure depth and color streams
 pipeline = rs.pipeline()
 config = rs.config()
+
 #change it to the path of your .bag file for the video stream, the RealSense SDK will treat it as though it is a live camera feed.
 config.enable_device_from_file("/home/pi/Desktop/Convert/try.bag")
 
@@ -24,11 +27,13 @@ pipeline_profile = config.resolve(pipeline_wrapper)
 device = pipeline_profile.get_device()
 device_product_line = str(device.get_info(rs.camera_info.product_line))
 
-
+# Getting the depth sensor's depth scale 
 depth_sensor = pipeline_profile.get_device().first_depth_sensor()
 depth_scale = depth_sensor.get_depth_scale()
 found_rgb = False
 
+
+#checks if user has compatible camera pluged in with CMOS sensor
 for s in device.sensors:
     if s.get_info(rs.camera_info.name) == 'RGB Camera':
         found_rgb = True
@@ -37,39 +42,40 @@ if not found_rgb:
     print("The demo requires Depth camera with Color sensor")
     sys.exit()
 
-#config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
-
-#if device_product_line == 'L500':
-    #config.enable_stream(rs.stream.color, 960, 540, rs.format.bgr8, 30)
-#else:
-    #config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
 # Start streaming
-#pipeline.start(config)
-
 profile = pipeline.start(config)
 # setup playback
 playback = profile.get_device().as_playback()
 playback.set_real_time(False)
 
+# function to get the output layer names in the architecture
 def getOutputsNames(net):
     layersNames = net.getLayerNames()
     return [layersNames[i[0] -1] for i in net.getUnconnectedOutLayers()]
 
+# function to draw bounding box on the detected object with class name
 def drawPredicted(classId, conf, left, top, right, bottom, frame,x ,y):
+    #draws a rectangle over object
     cv2.rec(frame, (left,top), (right,bottom), (255,178,50),3)
+    #retrieve the depth of a pixel in meters:
     dpt_frame = pipeline.wait_for_frames().get_depth_frame().as_depth_frame()
     distance = dpt_frame.get_distance(x,y)
+    #draws circle at the center of the bounding box of the object
     cv2.circle(frame,(x,y),radius=1,color=(0,0,254), thickness=5)
     label = '%.2f' % conf
+    # Get the label for the class name and its confidence
     if classes:
         assert(classId < len(classes))
         label = '%s' %(classes[classId])
+    #Display the label at the top of the bounding box
     labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)
     top = max(top, labelSize[1])
     cv2.putText(frame, label,(left,top-5), cv2.FONT_HERSHEY_SIMPLEX,0.75,(255,255,0),2)
     distance_string = "Dist: " + str(round(distance,2)) + " m"
     cv2.putText(frame,distance_string,(left,top+30), cv2.FONT_HERSHEY_SIMPLEX,0.75,(255,255,0),2)
 
+    
+#Remove the bounding boxes with low confidence using non-maxima suppression  
 def process_detection(frame, outs):
     frameHeight = frame.shape[0]
     frameWidth = frame.shape[1]
