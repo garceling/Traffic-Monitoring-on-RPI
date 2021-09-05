@@ -1,3 +1,4 @@
+#import the necessary libraries
 
 import pyrealsense2 as rs
 import numpy as np
@@ -14,6 +15,7 @@ classesFile = "coco.names"
 # Configure depth and color streams
 pipeline = rs.pipeline()
 config = rs.config()
+#change it to the path of your .bag file for the video stream, the RealSense SDK will treat it as though it is a live camera feed.
 config.enable_device_from_file("/home/pi/Desktop/Convert/try.bag")
 
 # Get device product line for setting a supporting resolution
@@ -21,6 +23,8 @@ pipeline_wrapper = rs.pipeline_wrapper(pipeline)
 pipeline_profile = config.resolve(pipeline_wrapper)
 device = pipeline_profile.get_device()
 device_product_line = str(device.get_info(rs.camera_info.product_line))
+
+
 depth_sensor = pipeline_profile.get_device().first_depth_sensor()
 depth_scale = depth_sensor.get_depth_scale()
 found_rgb = False
@@ -52,7 +56,7 @@ def getOutputsNames(net):
     return [layersNames[i[0] -1] for i in net.getUnconnectedOutLayers()]
 
 def drawPredicted(classId, conf, left, top, right, bottom, frame,x ,y):
-    cv2.rectangle(frame, (left,top), (right,bottom), (255,178,50),3)
+    cv2.rec(frame, (left,top), (right,bottom), (255,178,50),3)
     dpt_frame = pipeline.wait_for_frames().get_depth_frame().as_depth_frame()
     distance = dpt_frame.get_distance(x,y)
     cv2.circle(frame,(x,y),radius=1,color=(0,0,254), thickness=5)
